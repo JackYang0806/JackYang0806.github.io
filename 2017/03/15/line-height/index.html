@@ -8,16 +8,25 @@
   <link rel="dns-prefetch" href="http://JackYang0806.github.io.">
   <title>line-height的秘密 | JackYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="line-height行高123line-height:15px----行高为固定值。line-height:1.5----行高为子元素字号的1.5倍。line-height:150%或1.5em----行高是父元素字号的1.5倍。">
+  <meta name="description" content="line-height为固定值line-height:15px假设字号大小为12px，则字体上线空白距离之和为15-12=3，也就是说文字之间的空白距离为3px。
+line-height为1.5line-height:1.5----行高为子元素字号的1.5倍。
+假设对div设置line-height：1.5，div下的p元素字号为16px，则行高实际为16*1.5=24px。
+line-heigh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="line-height的秘密">
 <meta property="og:url" content="http://JackYang0806.github.io./2017/03/15/line-height/index.html">
 <meta property="og:site_name" content="JackYang">
-<meta property="og:description" content="line-height行高123line-height:15px----行高为固定值。line-height:1.5----行高为子元素字号的1.5倍。line-height:150%或1.5em----行高是父元素字号的1.5倍。">
-<meta property="og:updated_time" content="2017-03-15T06:44:58.165Z">
+<meta property="og:description" content="line-height为固定值line-height:15px假设字号大小为12px，则字体上线空白距离之和为15-12=3，也就是说文字之间的空白距离为3px。
+line-height为1.5line-height:1.5----行高为子元素字号的1.5倍。
+假设对div设置line-height：1.5，div下的p元素字号为16px，则行高实际为16*1.5=24px。
+line-heigh">
+<meta property="og:updated_time" content="2017-03-15T09:12:20.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="line-height的秘密">
-<meta name="twitter:description" content="line-height行高123line-height:15px----行高为固定值。line-height:1.5----行高为子元素字号的1.5倍。line-height:150%或1.5em----行高是父元素字号的1.5倍。">
+<meta name="twitter:description" content="line-height为固定值line-height:15px假设字号大小为12px，则字体上线空白距离之和为15-12=3，也就是说文字之间的空白距离为3px。
+line-height为1.5line-height:1.5----行高为子元素字号的1.5倍。
+假设对div设置line-height：1.5，div下的p元素字号为16px，则行高实际为16*1.5=24px。
+line-heigh">
   
     <link rel="alternative" href="/atom.xml" title="JackYang" type="application/atom+xml">
   
@@ -42,7 +51,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #88acdb"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -95,7 +104,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #88acdb"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -169,7 +178,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="line-height行高"><a href="#line-height行高" class="headerlink" title="line-height行高"></a>line-height行高</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">line-height:15px----行高为固定值。</div><div class="line">line-height:1.5----行高为子元素字号的1.5倍。</div><div class="line">line-height:150%或1.5em----行高是父元素字号的1.5倍。</div></pre></td></tr></table></figure>
+        <h2 id="line-height为固定值"><a href="#line-height为固定值" class="headerlink" title="line-height为固定值"></a>line-height为固定值</h2><p><code>line-height:15px</code><br>假设字号大小为12px，则字体上线空白距离之和为15-12=3，<br>也就是说文字之间的空白距离为3px。</p>
+<h2 id="line-height为1-5"><a href="#line-height为1-5" class="headerlink" title="line-height为1.5"></a>line-height为1.5</h2><p><code>line-height:1.5----行高为子元素字号的1.5倍。</code></p>
+<p>假设对div设置line-height：1.5，div下的p元素字号为16px，则行高实际为16*1.5=24px。</p>
+<h2 id="line-height为150-或1-5em"><a href="#line-height为150-或1-5em" class="headerlink" title="line-height为150%或1.5em"></a>line-height为150%或1.5em</h2><p><code>line-height:150%或1.5em----行高是父元素字号的1.5倍。</code></p>
+<p>若父元素字号大小为20px，则行高实际为20*1.5=30px。</p>
+
       
 
       
@@ -182,73 +196,12 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://JackYang0806.github.io./2017/03/15/line-height/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2017/03/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 
 
