@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://JackYang0806.github.io.">
-  <title>js | JackYang</title>
+  <title>五子棋游戏 | JackYang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="没有js相关">
+  <meta name="description" content="一个简单的五子棋实例实现原理分析首先，五子棋是在15*15的棋盘上，任何一条线（直线、竖线、正斜线、反斜线）连续有五个相同颜色棋子，则判定为赢。本次采用html+css+js基本制作方法。
+结构层+表现层这次制作，我把棋盘和棋子分成两层。棋盘层，可用table布局，显示出border呈现出一个棋盘效果，代码略。棋子层，整体定位，使其覆盖在棋盘层上面。使用li标签+float+border-radi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js">
-<meta property="og:url" content="http://JackYang0806.github.io./2017/03/16/JS/index.html">
+<meta property="og:title" content="五子棋游戏">
+<meta property="og:url" content="http://JackYang0806.github.io./2017/03/20/game/index.html">
 <meta property="og:site_name" content="JackYang">
-<meta property="og:description" content="没有js相关">
-<meta property="og:updated_time" content="2017-03-16T09:50:56.770Z">
+<meta property="og:description" content="一个简单的五子棋实例实现原理分析首先，五子棋是在15*15的棋盘上，任何一条线（直线、竖线、正斜线、反斜线）连续有五个相同颜色棋子，则判定为赢。本次采用html+css+js基本制作方法。
+结构层+表现层这次制作，我把棋盘和棋子分成两层。棋盘层，可用table布局，显示出border呈现出一个棋盘效果，代码略。棋子层，整体定位，使其覆盖在棋盘层上面。使用li标签+float+border-radi">
+<meta property="og:updated_time" content="2017-03-20T07:32:33.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js">
-<meta name="twitter:description" content="没有js相关">
+<meta name="twitter:title" content="五子棋游戏">
+<meta name="twitter:description" content="一个简单的五子棋实例实现原理分析首先，五子棋是在15*15的棋盘上，任何一条线（直线、竖线、正斜线、反斜线）连续有五个相同颜色棋子，则判定为赢。本次采用html+css+js基本制作方法。
+结构层+表现层这次制作，我把棋盘和棋子分成两层。棋盘层，可用table布局，显示出border呈现出一个棋盘效果，代码略。棋子层，整体定位，使其覆盖在棋盘层上面。使用li标签+float+border-radi">
   
     <link rel="alternative" href="/atom.xml" title="JackYang" type="application/atom+xml">
   
@@ -168,27 +171,134 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-game" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js
+      五子棋游戏
     </h1>
   
 
         
-        <a href="/2017/03/16/JS/" class="archive-article-date">
-  	<time datetime="2017-03-16T09:35:55.377Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-16</time>
+        <a href="/2017/03/20/game/" class="archive-article-date">
+  	<time datetime="2017-03-20T07:26:27.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="没有js相关"><a href="#没有js相关" class="headerlink" title="没有js相关"></a>没有js相关</h2>
+        <h1 id="一个简单的五子棋实例"><a href="#一个简单的五子棋实例" class="headerlink" title="一个简单的五子棋实例"></a>一个简单的五子棋实例</h1><p><strong>实现原理分析</strong><br>首先，五子棋是在15*15的棋盘上，任何一条线（直线、竖线、正斜线、反斜线）连续有五个相同颜色棋子，则判定为赢。本次采用html+css+js基本制作方法。</p>
+<h2 id="结构层-表现层"><a href="#结构层-表现层" class="headerlink" title="结构层+表现层"></a>结构层+表现层</h2><p>这次制作，我把棋盘和棋子分成两层。<br>棋盘层，可用table布局，显示出border呈现出一个棋盘效果，代码略。<br>棋子层，整体定位，使其覆盖在棋盘层上面。使用li标签+float+border-radius可以实现圆形棋子效果。<br>那么接下来，你需要给每个li标签加一个点击事件。在用户当玩家点击到这块li的时候，先判断该位置是否已经下子，再根据玩家属性，分配黑白棋子。引用jquery，事件主函数代码如下：<br></p>
+<pre><code> $(&quot;li&quot;).on(&quot;click&quot;, function () {
+    var nullPlayer1=$(this).hasClass(&quot;black&quot;);
+    var nullPlayer2=$(this).hasClass(&quot;white&quot;);
+    if(nullPlayer1||nullPlayer2){
+        alert(&quot;该位置已经下子！&quot;);
+    }
+    else {
+       //do something
+    } 
+})
+</code></pre><h2 id="do-something"><a href="#do-something" class="headerlink" title="do something"></a>do something</h2><p><strong>first：</strong>判断角色，黑or白？<br>起始角色为黑，定义一个player变量，初始值为1；每次完成下子后，令player=-player；完成角色转换，并给出对应棋子的className。函数如下：<br></p>
+<pre><code> function clickClient(player){
+    if(player==1){
+
+        return    &quot;black&quot;;
+    }
+    else {
+        return   &quot;white&quot;;
+    }
+}
+</code></pre><p><strong>second：</strong>分别记录黑白玩家的落子点（方便之后进行输赢判定）。<br>棋盘为15<em>15的格子，因此棋子一共256颗，所有li的区别仅在于各自的编号index（0~255）；直接存储index确实方便不少，不过只有判断输赢会比较麻烦，所在在这一步，先对index做个处理。还是因为棋盘是15</em>15的原因，可以使用16进制。将index作为参数传入，取模和整除，得到一个[x,y]数组。函数如下：</p>
+<pre><code> function rank(num){
+    var x;
+    var y;
+    x=num%16;
+    y=(num-x)/16;
+    return  [x,y]
+}
+</code></pre><p><strong>third:</strong>根据player将得到的[x,y]数组存入对应的玩家数组，生成一个二维数组。代码如下：</p>
+<pre><code>  function pushGame(index,player){
+    var count;
+    count= rank(index);
+    if(player==1){
+        blackArr.push(count);
+    }
+    else {
+        whiteArr.push(count);
+    }
+}
+</code></pre><p><strong>forth：</strong>五子棋中最难的一步，也就是进行输赢的判断。不过之前我们已经做好了准备工作。这一步将会变得稍微简单些。判定输赢，一共有四条路：<br><br><strong>横线：</strong>也就是整除部分相同，二维数组中第二个元素Array[i][1]相同，二维数组中Array[i][0]依次增加1。判定代码如下：</p>
+<pre><code> function winnerCol(arrCol,index,player){
+    var nullArrCol=[];
+    var countdexCol=0;
+    var lastCol=rank(index);
+    lastCol=lastCol[1];
+   for(var i=0;i&lt;arrCol.length;i++){
+       if(arrCol[i][1]==lastCol){
+           countdexCol++;
+           nullArrCol.push(arrCol[i][0]);
+           if(countdexCol&gt;=5){
+                nullArrCol=nullArrCol.sort(function (n1,n2) {return n1-n2});
+               var sumCol=0;
+               var sumTrueCol=0;
+               for(var j=0;j&lt;nullArrCol.length-4;j++){
+                   sumCol=nullArrCol[j]+nullArrCol[j+1]+nullArrCol[j+2]+nullArrCol[j+3]+nullArrCol[j+4];
+                   sumTrueCol=nullArrCol[j]*5+10;
+                   if(sumCol==sumTrueCol){
+                       console.log(arrCol.sort(function (n1,n2) {return n1[0]-n2[0]}));
+                       if(player==1)
+                       {
+                           alert(&quot;winner is white!&quot;);
+                       }
+                       else {
+                           alert(&quot;winner is black!&quot;);
+                       }
+                       return false
+                   }
+               }
+           }
+       }
+   }
+}
+</code></pre><p><strong>竖线</strong>与横线原理相同，只是现在二维数组中Array[i][1]的值相同，二维数组中Array[i][0]依次增加1。此处代码省略。<br><br><strong>正斜线</strong>斜线判定输赢基本就是难点所在了，麻烦一点。我采用的是遍历数组，先对数组排序，每次可以减少4次循环。递进查找，代码如下：</p>
+<pre><code>function leanleft(arrleft,player){
+arrleft=(arrleft.sort(function (n1,n2) {return n1[0]-n2[0]}));
+   for(var i=0;i&lt;arrleft.length-4;i++){
+   var leftclienX=arrleft[i][0];
+   var leftclienY=arrleft[i][1];
+   for(y1 in arrleft){
+   if(arrleft[y1][0]==leftclienX+1&amp;&amp;arrleft[y1][1]==leftclienY+1){
+   for(y2 in arrleft){
+   if(arrleft[y2][0]==leftclienX+2&amp;&amp;arrleft[y2][1]==leftclienY+2){
+   for(y3 in arrleft){
+   if(arrleft[y3][0]==leftclienX+3&amp;&amp;arrleft[y3][1]==leftclienY+3){
+   for(y4 in arrleft){
+   if(arrleft[y4][0]==leftclienX+4&amp;&amp;arrleft[y4][1]==leftclienY+4){
+   if(player==1)
+   {
+   alert(&quot;winner is white!&quot;);
+   }
+   else {
+   alert(&quot;winner is black!&quot;);
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+}
+</code></pre><p><strong>反斜线</strong>与正斜线原理基本相同，只是leftclientY依次减1。<br>走到这一步，一个简单是五子棋游戏就基本完成了。让我们打开网址预览一下：<a href="https://jackyang0806.github.io/game/index.html" target="_blank" rel="external">https://jackyang0806.github.io/game/index.html</a></p>
+<p>开发比较简陋，没有细化，还请见谅。后续可以优化斜线判定js，增加悔棋功能等。好的，这次就到这里吧。附加一句名言警句：<br><br><strong>人生就像卫生纸，没事的时候，尽量少扯！</strong></p>
+
       
 
       
@@ -220,18 +330,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/16/sui/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          随笔
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/16/html/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML</div>
+    <a href="/2017/03/16/sui/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">随笔</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -340,15 +441,15 @@
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
